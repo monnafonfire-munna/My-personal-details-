@@ -4,660 +4,669 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080910">
-<meta name="description" content="The personal website of Munnaf Hasan.">
-<title>Munnaf Hasan — Personal Website</title>
+<meta name="theme-color" content="#08051f">
+<meta name="description" content="Official personal website of Munnaf Hasan">
+<title>Munnaf Hasan | Official</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #080910;
-  --surface: #111321;
-  --surface2: #171a2b;
-  --text: #f7f7ff;
-  --muted: #a5a8bf;
-  --purple: #a78bfa;
-  --blue: #60a5fa;
-  --border: rgba(255,255,255,.09);
+  --purple: #a855f7;
+  --pink: #e879f9;
+  --blue: #38bdf8;
+  --text: #f6f5ff;
+  --muted: #aebce8;
 }
 
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 25px;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   color: var(--text);
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(100,65,210,.18), transparent 48%),
-    var(--bg);
-  font-family: "DM Sans", "Hind Siliguri", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
+  font-family: Inter, sans-serif;
+  background: #08051f;
 }
 
-a { color: inherit; text-decoration: none; }
-button, a { -webkit-tap-highlight-color: transparent; }
-
-.page {
-  width: min(100% - 36px, 690px);
-  margin-inline: auto;
-}
-
-header {
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-}
-
-.logo {
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: -1.5px;
-}
-
-.logo span { color: var(--purple); }
-
-.header-tag {
-  color: #c2c4d8;
-  font-size: 11px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-}
-
-.profile {
-  padding: 65px 0 45px;
-  text-align: center;
-  animation: appear .85s ease both;
-}
-
-.avatar-wrap {
-  position: relative;
-  width: 142px;
-  height: 142px;
-  margin: 0 auto 27px;
-}
-
-.avatar-wrap::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #8b5cf6,
-    #60a5fa,
-    #c4b5fd,
-    #8b5cf6
-  );
-  animation: spin 8s linear infinite;
-}
-
-.avatar-wrap::after {
-  content: "";
-  position: absolute;
-  inset: -15px;
-  border-radius: 50%;
-  border: 1px solid rgba(167,139,250,.18);
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(112,45,255,.62), transparent 43%),
+    radial-gradient(ellipse at 0% 42%, rgba(0,116,255,.36), transparent 44%),
+    radial-gradient(ellipse at 100% 58%, rgba(205,38,255,.3), transparent 42%),
+    linear-gradient(180deg,#10072e 0%,#090d2b 48%,#050719 100%);
 }
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .35;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 80% 15%,#bba4ff 98%,transparent),
+    radial-gradient(1px 1px at 55% 35%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 92% 70%,#55c8ff 98%,transparent),
+    radial-gradient(1px 1px at 25% 82%,#d8b4fe 98%,transparent);
+  background-size: 230px 240px;
+}
+
+.glow {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(95px);
+  opacity: .4;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.glow-a { background: #773bff; top: 10%; left: -190px; }
+.glow-b { background: #d946ef; right: -190px; top: 45%; animation-delay: -4s; }
+
+@keyframes float {
+  from { transform: translateY(-15px); }
+  to { transform: translateY(85px); }
+}
+
+.container {
+  width: min(100% - 32px, 1000px);
+  margin: auto;
+}
+
+/* PROFILE */
+.hero {
+  text-align: center;
+  padding: 65px 0 40px;
+}
+
+.avatar-ring {
+  position: relative;
+  width: 218px;
+  height: 218px;
+  margin: 0 auto 27px;
+  padding: 6px;
+  border-radius: 50%;
+  background: conic-gradient(#a855f7,#38bdf8,#2563eb,#ec4899,#a855f7);
+  box-shadow: 0 0 25px #7c3aed, 0 0 65px rgba(56,189,248,.38);
+  animation: ring-spin 8s linear infinite;
+}
+
+.avatar-ring::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #d946ef;
+  border-bottom-color: #38bdf8;
+  filter: drop-shadow(0 0 7px #a855f7);
+}
+
+@keyframes ring-spin { to { transform: rotate(360deg); } }
 
 .avatar {
-  position: relative;
-  z-index: 1;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  border: 5px solid var(--bg);
-  background: linear-gradient(145deg, #24203f, #151b32);
-  display: grid;
-  place-items: center;
   overflow: hidden;
-  font-size: 45px;
-  font-weight: 800;
-  letter-spacing: -3px;
-  color: #ddd6fe;
+  border-radius: 50%;
+  border: 4px solid #090a24;
+  background: #17123c;
 }
 
 .avatar img {
-  display: block;
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  animation: ring-spin 8s linear infinite reverse;
 }
 
-.eyebrow {
-  color: var(--purple);
-  font-size: 10px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 18px;
+  margin-bottom: 17px;
+  border: 1px solid rgba(56,189,248,.65);
+  border-radius: 50px;
+  background: rgba(8,14,42,.7);
+  color: #dbeafe;
+  font-size: 13px;
+  backdrop-filter: blur(12px);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #00f5a0;
+  box-shadow: 0 0 12px #00f5a0;
 }
 
 h1 {
-  margin: 13px 0 12px;
-  font-size: clamp(34px, 8vw, 49px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 1.2;
-}
-
-h1 span {
-  background: linear-gradient(100deg, #c4b5fd, #93c5fd);
-  background-clip: text;
+  margin: 0;
+  font-size: clamp(32px,6vw,54px);
+  line-height: 1.15;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+  background: linear-gradient(100deg,#f0abfc,#a5b4fc,#38bdf8);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
-.intro {
-  max-width: 390px;
-  margin: 0 auto;
-  color: #c0c2d5;
-  font-size: 14px;
-  line-height: 1.9;
+.tagline {
+  color: #bdc8ff;
+  margin: 14px 0 18px;
+  font-size: clamp(14px,2.8vw,18px);
 }
 
 .location {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin-top: 17px;
-  padding: 8px 13px;
-  border: 1px solid var(--border);
-  border-radius: 30px;
-  color: #d1d3e5;
-  font-size: 11px;
-  background: rgba(255,255,255,.025);
+  gap: 8px;
+  color: #c9d7ff;
+  font-size: 15px;
 }
 
-.location-dot {
+.location svg { color: #a78bfa; }
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 30px;
+}
+
+.dots::before, .dots::after {
+  content: "";
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg,transparent,#a855f7);
+}
+
+.dots::after { transform: rotate(180deg); }
+
+.dots span {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #86efac;
-  box-shadow: 0 0 9px #86efac;
+  background: #c084fc;
+  box-shadow: 0 0 10px #a855f7;
 }
 
-/* Social media */
-
-.social-section { padding: 18px 0 52px; }
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 19px;
-}
-
-.section-icon {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 1px solid rgba(167,139,250,.24);
-  border-radius: 12px;
-  background: rgba(139,92,246,.10);
-  color: #c4b5fd;
-  font-size: 17px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.section-heading p {
-  margin: 4px 0 0;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.social-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.social-card {
+/* SECTION CARDS */
+.panel {
   position: relative;
-  min-height: 81px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 15px;
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
   overflow: hidden;
-  transition:
-    transform .22s ease,
-    border-color .22s ease,
-    background .22s ease,
-    box-shadow .22s ease;
-  animation: appear .65s ease both;
+  padding: 26px 29px 20px;
+  margin-bottom: 43px;
+  border-radius: 24px;
+  border: 1px solid rgba(139,92,246,.85);
+  background: linear-gradient(135deg,rgba(16,20,58,.88),rgba(5,11,35,.78));
+  box-shadow: 0 0 35px rgba(93,45,210,.2), inset 0 1px rgba(255,255,255,.06);
+  backdrop-filter: blur(18px);
 }
 
-.social-card::after {
+.panel::after {
   content: "";
   position: absolute;
-  width: 70px;
-  height: 70px;
-  right: -30px;
-  bottom: -40px;
+  width: 230px;
+  height: 100px;
+  right: 5%;
+  bottom: -90px;
   border-radius: 50%;
-  background: var(--accent, #8b5cf6);
-  opacity: .12;
-  filter: blur(22px);
+  background: #6044ff;
+  filter: blur(70px);
   pointer-events: none;
 }
 
-.social-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-  background: linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025));
-  box-shadow: 0 10px 28px rgba(0,0,0,.18);
-}
-
-.social-card:active {
-  transform: scale(.96);
-  transition-duration: .08s;
-}
-
-.social-icon {
-  position: relative;
-  z-index: 1;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  background: color-mix(in srgb, var(--accent) 14%, #151626);
-  color: var(--accent);
-  transition: transform .25s ease;
-}
-
-.social-card:hover .social-icon {
-  transform: rotate(-5deg) scale(1.07);
-}
-
-.social-icon svg {
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
-}
-
-.social-copy { min-width: 0; }
-
-.social-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #f4f4ff;
-}
-
-.social-handle {
-  margin-top: 5px;
-  font-size: 10px;
-  line-height: 1.5;
-  color: #b8bad0;
-  overflow-wrap: anywhere;
-}
-
-.arrow {
-  margin-left: auto;
-  align-self: flex-start;
-  color: #9698b2;
-  font-size: 16px;
-  transition: transform .2s, color .2s;
-}
-
-.social-card:hover .arrow {
-  transform: translate(2px,-2px);
-  color: var(--accent);
-}
-
-/* Personal details */
-
-.details-section {
-  padding: 0 0 70px;
-  border-top: 1px solid var(--border);
-  padding-top: 34px;
-}
-
-.details-panel {
-  border: 1px solid var(--border);
-  border-radius: 19px;
-  overflow: hidden;
-  background: linear-gradient(150deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
-}
-
-.detail-row {
-  min-height: 63px;
+.section-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 15px 18px;
-  border-bottom: 1px solid var(--border);
+  gap: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(167,180,230,.17);
 }
 
-.detail-row:last-child { border-bottom: 0; }
+.title-icon {
+  width: 51px;
+  height: 51px;
+  flex: 0 0 51px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #b56bff;
+  border-radius: 16px;
+  background: linear-gradient(140deg,rgba(168,85,247,.32),rgba(37,99,235,.25));
+  box-shadow: 0 0 20px rgba(168,85,247,.22);
+  color: #f3e8ff;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(21px,4vw,30px);
+  font-weight: 800;
+  letter-spacing: -.7px;
+  background: linear-gradient(100deg,#e879f9,#60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title-note {
+  margin-left: auto;
+  color: #9eafe4;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* DETAILS */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-width: 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(167,180,230,.13);
+}
+
+.detail:nth-last-child(-n+2) { border-bottom: 0; }
+
+.detail-icon {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  border: 1px solid rgba(139,92,246,.95);
+  background: linear-gradient(140deg,rgba(124,58,237,.4),rgba(37,99,235,.25));
+  color: #e9d5ff;
+}
 
 .detail-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #c2c4d8;
-  font-size: 12px;
-}
-
-.detail-symbol {
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  border-radius: 9px;
-  background: rgba(167,139,250,.10);
-  color: #c4b5fd;
+  color: #9eafe4;
   font-size: 13px;
+  margin-bottom: 7px;
 }
 
 .detail-value {
-  max-width: 58%;
-  text-align: right;
-  color: #f3f3ff;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
-.detail-value.accent { color: #c4b5fd; }
+/* SOCIAL */
+.social-section { margin-bottom: 44px; }
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 22px 0 30px;
+.social-heading {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 15px;
+  margin: 0 0 24px;
+}
+
+.social-heading .title-icon { border-radius: 50%; }
+
+.social-heading h2 {
+  margin: 0;
+  font-size: clamp(22px,4vw,30px);
+  font-weight: 800;
+  letter-spacing: -.7px;
+  white-space: nowrap;
+  background: linear-gradient(100deg,#e879f9,#60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg,#8b5cf6,#38bdf8);
+}
+
+.social-note { color: #9eafe4; font-size: 12px; }
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 14px;
-  color: #a5a8bf;
+}
+
+.social-card {
+  --accent: #60a5fa;
+  --tint: rgba(59,130,246,.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 99px;
+  padding: 14px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: 22px;
+  background: linear-gradient(125deg,var(--tint),rgba(5,13,37,.82) 78%);
+  box-shadow: inset 0 0 20px var(--tint);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--tint),inset 0 0 20px var(--tint);
+}
+
+.social-card:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+.social-logo {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--accent);
+  box-shadow: 0 0 22px var(--tint);
+}
+
+.social-logo svg { width: 31px; height: 31px; }
+
+.social-name { font-size: 13px; font-weight: 800; margin-bottom: 6px; }
+.social-handle { font-size: 10px; color: #c3d0ef; overflow-wrap: anywhere; }
+
+.arrow {
+  margin-left: auto;
+  flex: 0 0 29px;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--tint);
+  font-size: 18px;
+  transition: transform .2s;
+}
+
+.social-card:hover .arrow { transform: translateX(3px); }
+
+.facebook { --accent:#3b82f6; --tint:rgba(37,99,235,.23); }
+.instagram { --accent:#ec4899; --tint:rgba(219,39,119,.22); }
+.tiktok { --accent:#06b6d4; --tint:rgba(6,182,212,.17); }
+.whatsapp { --accent:#10d98b; --tint:rgba(16,185,129,.2); }
+.telegram { --accent:#0ea5e9; --tint:rgba(14,165,233,.23); }
+.email { --accent:#c084fc; --tint:rgba(168,85,247,.24); }
+
+.facebook .social-logo { background:#1877f2; }
+.instagram .social-logo { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
+.tiktok .social-logo { background:#090b16; }
+.whatsapp .social-logo { background:linear-gradient(145deg,#00db88,#008b57); }
+.telegram .social-logo { background:linear-gradient(145deg,#38bdf8,#0369a1); }
+.email .social-logo { background:linear-gradient(145deg,#c084fc,#7c3aed); }
+
+/* FOOTER */
+footer {
+  padding: 5px 0 42px;
+  text-align: center;
+  color: #93a4d3;
+}
+
+.footer-line {
+  width: 72px;
+  height: 2px;
+  margin: 0 auto 22px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#d946ef,#38bdf8);
+}
+
+.footer-caption {
   font-size: 10px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
 }
 
-footer a { color: #c4b5fd; }
+.footer-name { font-weight: 800; font-size: 16px; color: #f1f5ff; }
+.footer-symbol { color: #c084fc; font-size: 23px; margin-top: 10px; }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s ease;
+@media (max-width: 760px) {
+  .container { width: min(100% - 28px,560px); }
+  .hero { padding-top: 48px; }
+  .avatar-ring { width: 185px; height: 185px; }
+  .panel { padding: 21px 19px 16px; }
+  .details-grid { column-gap: 17px; }
+  .detail { gap: 11px; }
+  .detail-icon { width: 49px; height: 49px; flex-basis: 49px; border-radius: 13px; }
+  .detail-icon svg { width: 23px; height: 23px; }
+  .detail-value { font-size: 13px; }
+  .detail-label { font-size: 12px; }
+  .social-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .social-card { min-height: 84px; padding: 11px; gap: 9px; }
+  .social-logo { width: 46px; height: 46px; flex-basis: 46px; border-radius: 13px; }
+  .social-logo svg { width: 26px; height: 26px; }
+  .arrow { width: 26px; height: 26px; flex-basis: 26px; }
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 430px) {
-  .page { width: calc(100% - 30px); }
-  header { height: 66px; }
-  .profile { padding-top: 53px; }
-  .avatar-wrap { width: 125px; height: 125px; }
+@media (max-width: 420px) {
+  .container { width: calc(100% - 24px); }
+  .hero { padding-top: 40px; }
+  .avatar-ring { width: 165px; height: 165px; }
+  h1 { font-size: 32px; letter-spacing: -1px; }
+  .tagline { font-size: 13px; }
+  .panel { padding: 17px 14px 13px; border-radius: 20px; }
+  .title-icon { width: 43px; height: 43px; flex-basis: 43px; border-radius: 13px; }
+  .section-title { gap: 10px; }
+  .section-title h2,.social-heading h2 { font-size: 20px; }
+  .title-note,.social-note { font-size: 10px; }
+  .details-grid { grid-template-columns: 1fr; }
+  .detail { padding: 12px 0; }
+  .detail:nth-last-child(-n+2) { border-bottom: 1px solid rgba(167,180,230,.13); }
+  .detail:last-child { border-bottom: 0; }
+  .social-heading { gap: 9px; }
   .social-grid { gap: 9px; }
-  .social-card { min-height: 77px; padding: 11px 9px; gap: 9px; border-radius: 14px; }
-  .social-icon { width: 36px; height: 36px; flex-basis: 36px; border-radius: 11px; }
-  .social-icon svg { width: 19px; height: 19px; }
-  .social-name { font-size: 12px; }
+  .social-card { min-height: 76px; padding: 9px; gap: 8px; border-radius: 16px; }
+  .social-logo { width: 38px; height: 38px; flex-basis: 38px; border-radius: 11px; }
+  .social-logo svg { width: 22px; height: 22px; }
+  .social-name { font-size: 11px; }
   .social-handle { font-size: 9px; }
-  .arrow { font-size: 13px; }
-  .detail-row { padding-inline: 12px; }
+  .arrow { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,*::before,*::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
   }
-  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
-<header class="page">
-  <a class="logo" href="#home" aria-label="Home">m<span>.</span></a>
-  <span class="header-tag">Personal Website</span>
-</header>
+<div class="background"></div>
+<div class="glow glow-a"></div>
+<div class="glow glow-b"></div>
 
-<main class="page" id="home">
+<main class="container">
 
-  <!-- 1. PROFILE PHOTO, NAME AND INTRO -->
-  <section class="profile">
-    <div class="avatar-wrap">
+  <header class="hero">
+    <div class="avatar-ring">
       <div class="avatar">
-        <!-- Replace profile.jpg with your actual photo file -->
-        <img src="profile.jpg" alt="Munnaf Hasan"
-          onerror="this.style.display='none';this.parentElement.textContent='M';">
+        <img src="profile.jpg" alt="Munnaf Hasan">
       </div>
     </div>
 
-    <div class="eyebrow">WELCOME TO MY WORLD</div>
-    <h1><span>MUNNAF</span> HASAN</h1>
-    <p class="intro">
-      Welcome to my personal space. Get to know me
-      and connect with me across social media.
-    </p>
+    <div class="status"><span class="status-dot"></span> Welcome to my world</div>
+    <h1>MUNNAF HASAN</h1>
+    <p class="tagline">Just me, my world &amp; my journey.</p>
 
     <div class="location">
-      <span class="location-dot"></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+      </svg>
       Bangladesh
+    </div>
+
+    <div class="dots" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="personal-title">
+    <div class="section-title">
+      <div class="title-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21v-2a8 8 0 0 1 16 0v2z"/>
+        </svg>
+      </div>
+      <h2 id="personal-title">Personal Details</h2>
+      <span class="title-note">About Me</span>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail">
+        <div class="detail-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="7" r="5"/><path d="M3 22v-2a9 9 0 0 1 18 0v2z"/>
+          </svg>
+        </div>
+        <div><div class="detail-label">Full Name</div><div class="detail-value">Munnaf Hasan</div></div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+          </svg>
+        </div>
+        <div><div class="detail-label">Country</div><div class="detail-value">Bangladesh</div></div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="m12 2 3 6 7 .9-5 4.8 1.2 7L12 17.4 5.8 20.7 7 13.7 2 8.9 9 8z"/>
+          </svg>
+        </div>
+        <div><div class="detail-label">Favourite Player</div><div class="detail-value">Lionel Messi</div></div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M12 2 21 6v6c0 5-4 8-9 10-5-2-9-5-9-10V6z"/><path d="m8 12 3 3 5-6"/>
+          </svg>
+        </div>
+        <div><div class="detail-label">Favourite Team</div><div class="detail-value">Argentina 🇦🇷</div></div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 8h12a4 4 0 0 1 4 4v5a2 2 0 0 1-3 1.7L15 16H9l-4 2.7A2 2 0 0 1 2 17v-5a4 4 0 0 1 4-4zm1 3v2h2v2h2v-2h2v-2h-2V9H9v2zm10 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+        </div>
+        <div><div class="detail-label">Interests</div><div class="detail-value">Football &amp; Technology</div></div>
+      </div>
     </div>
   </section>
 
-  <!-- 2. SOCIAL MEDIA BUTTONS -->
-  <section class="social-section" id="social">
-    <div class="section-heading">
-      <div class="section-icon">↗</div>
-      <div>
-        <h2>Let's Connect</h2>
-        <p>Find me on social media</p>
+  <section class="social-section" aria-labelledby="social-title">
+    <div class="social-heading">
+      <div class="title-icon">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 2 21 6v6c0 5-4 8-9 10-5-2-9-5-9-10V6z"/><circle cx="12" cy="11" r="3"/><path d="M7 18c1-3 9-3 10 0"/>
+        </svg>
       </div>
+      <h2 id="social-title">Find Me Online</h2>
+      <div class="heading-line"></div>
+      <span class="social-note">Connect</span>
     </div>
 
     <div class="social-grid">
 
-      <a class="social-card" style="--accent:#60a5fa"
-        href="https://www.facebook.com/munnafonfire"
-        target="_blank" rel="noopener noreferrer">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.3V13h2.8v8z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">Facebook</span>
-          <span class="social-handle">Visit my profile</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card facebook" href="https://www.facebook.com/munnafonfire" target="_blank" rel="noopener noreferrer">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h2.8v8z"/></svg>
+        </div>
+        <div><div class="social-name">Facebook</div><div class="social-handle">@munnafonfire</div></div>
+        <span class="arrow">→</span>
       </a>
 
-      <a class="social-card" style="--accent:#f0abfc"
-        href="https://www.instagram.com/munnafonfire"
-        target="_blank" rel="noopener noreferrer">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">Instagram</span>
-          <span class="social-handle">Photo & moments</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card instagram" href="https://www.instagram.com/munnafonfire" target="_blank" rel="noopener noreferrer">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+        </div>
+        <div><div class="social-name">Instagram</div><div class="social-handle">@munnafonfire</div></div>
+        <span class="arrow">→</span>
       </a>
 
-      <a class="social-card" style="--accent:#e5e7eb"
-        href="https://www.tiktok.com/@munnaf_on_fire"
-        target="_blank" rel="noopener noreferrer">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19.6 6.2a5.4 5.4 0 0 1-3.4-3.8V2h-3.8v13.5a2.9 2.9 0 1 1-2-2.8V8.8a7 7 0 1 0 5.8 6.9V9a9.1 9.1 0 0 0 5.3 1.7V6.9a5.5 5.5 0 0 1-1.9-.7z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">TikTok</span>
-          <span class="social-handle">@munnaf_on_fire</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card tiktok" href="https://www.tiktok.com/@munnaf_on_fire" target="_blank" rel="noopener noreferrer">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.6 7.3a6.8 6.8 0 0 1-4.1-1.4v8.2a6.1 6.1 0 1 1-5.3-6v3.4a2.8 2.8 0 1 0 1.9 2.6V2.5h3.4c.2 2 1.8 3.8 4.1 4.1z"/></svg>
+        </div>
+        <div><div class="social-name">TikTok</div><div class="social-handle">@munnaf_on_fire</div></div>
+        <span class="arrow">→</span>
       </a>
 
-      <a class="social-card" style="--accent:#4ade80"
-        href="https://wa.me/"
-        target="_blank" rel="noopener noreferrer">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6a11.8 11.8 0 0 0 5.6 1.4h.1A11.8 11.8 0 0 0 20.5 3.5zM12.2 21.3a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.5.9.9-3.4-.2-.4a9.6 9.6 0 1 1 8.2 4.5zm5.3-7.2c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.4.2-.7.1-1.8-.9-3-1.7-4.2-3.8-.3-.5.3-.5.9-1.7.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 4.9 4.4 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">WhatsApp</span>
-          <span class="social-handle">Send a message</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card whatsapp" href="https://wa.me/8801628051062" target="_blank" rel="noopener noreferrer">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/><path d="M9 8c.5 3 2 4.5 5 5l1.2-1.5 2 1c-.4 2-1.5 2.5-3 2.5-3.8-.7-6.5-3.5-7-7 0-1.5.5-2.5 2.5-3l1 2z"/></svg>
+        </div>
+        <div><div class="social-name">WhatsApp</div><div class="social-handle">Message me</div></div>
+        <span class="arrow">→</span>
       </a>
 
-      <a class="social-card" style="--accent:#38bdf8"
-        href="https://t.me/munnaf699"
-        target="_blank" rel="noopener noreferrer">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21.8 3.3 18.6 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6 13.5l-4.9-1.5c-1.1-.4-1.1-1.1.2-1.6L20.4 2c.9-.3 1.7.2 1.4 1.3z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">Telegram</span>
-          <span class="social-handle">@munnaf699</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card telegram" href="https://t.me/munnaf699" target="_blank" rel="noopener noreferrer">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="m21.5 4.5-3.2 15c-.2 1.1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.3L6 15.9l-5-1.6c-1.1-.4-1.1-1.1.2-1.6L20.5 5c.9-.3 1.7.2 1 1z"/></svg>
+        </div>
+        <div><div class="social-name">Telegram</div><div class="social-handle">@munnaf699</div></div>
+        <span class="arrow">→</span>
       </a>
 
-      <a class="social-card" style="--accent:#c4b5fd"
-        href="mailto:monnafonfire@gmail.com">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 4h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm9 9L3.5 7v11h17V7zm0-2.2L20.3 6H3.7z"/>
-          </svg>
-        </span>
-        <span class="social-copy">
-          <span class="social-name">Email</span>
-          <span class="social-handle">Send me an email</span>
-        </span>
-        <span class="arrow">↗</span>
+      <a class="social-card email" href="mailto:monnafonfire@gmail.com">
+        <div class="social-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+        </div>
+        <div><div class="social-name">Email</div><div class="social-handle">monnafonfire@gmail.com</div></div>
+        <span class="arrow">→</span>
       </a>
 
     </div>
   </section>
 
-  <!-- 3. PERSONAL DETAILS -->
-  <section class="details-section" id="about">
-    <div class="section-heading">
-      <div class="section-icon">✦</div>
-      <div>
-        <h2>Personal Details</h2>
-        <p>A few things about me</p>
-      </div>
-    </div>
-
-    <div class="details-panel">
-      <div class="detail-row">
-        <span class="detail-label">
-          <span class="detail-symbol">♙</span> Full Name
-        </span>
-        <span class="detail-value">Munnaf Hasan</span>
-      </div>
-
-      <div class="detail-row">
-        <span class="detail-label">
-          <span class="detail-symbol">⌖</span> Country
-        </span>
-        <span class="detail-value">Bangladesh</span>
-      </div>
-
-      <div class="detail-row">
-        <span class="detail-label">
-          <span class="detail-symbol">⚽</span> Favourite Player
-        </span>
-        <span class="detail-value accent">Lionel Messi</span>
-      </div>
-
-      <div class="detail-row">
-        <span class="detail-label">
-          <span class="detail-symbol">🇦🇷</span> Favourite Team
-        </span>
-        <span class="detail-value accent">Argentina</span>
-      </div>
-
-      <div class="detail-row">
-        <span class="detail-label">
-          <span class="detail-symbol">♡</span> Interests
-        </span>
-        <span class="detail-value">Football & Technology</span>
-      </div>
-    </div>
-  </section>
+  <footer>
+    <div class="footer-line"></div>
+    <div class="footer-caption">MADE WITH CARE BY</div>
+    <div class="footer-name">MUNNAF HASAN</div>
+    <div class="footer-symbol">♛</div>
+  </footer>
 
 </main>
-
-<footer class="page">
-  <span>© <span id="year">2026</span> Munnaf Hasan</span>
-  <a href="#home">Back to top ↑</a>
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Smooth reveal without changing layout dimensions */
-const revealTargets = document.querySelectorAll(
-  ".social-section, .details-section"
-);
-
-if ("IntersectionObserver" in window &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  revealTargets.forEach(el => el.classList.add("reveal"));
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  revealTargets.forEach(el => observer.observe(el));
-}
-</script>
 </body>
 </html>
